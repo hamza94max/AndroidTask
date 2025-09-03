@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
+import es.dmoral.toasty.Toasty
 
 abstract class BaseFragment<VB : ViewBinding> : Fragment() {
 
