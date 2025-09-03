@@ -6,15 +6,21 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.hamza.madar.R
 import com.hamza.madar.base.BaseFragment
 import com.hamza.madar.databinding.FragmentHomeBinding
+import com.hamza.madar.domain.models.User
+import com.hamza.madar.ui.users.UserViewModel
 import com.hamza.madar.utils.TextInputUtils.validate
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
+
+    private val userViewModel: UserViewModel by viewModels()
 
     override val bindLayout: (LayoutInflater, ViewGroup?, Boolean) -> FragmentHomeBinding
         get() = FragmentHomeBinding::inflate
@@ -33,7 +39,14 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     private fun handleSaveButton() {
         binding.saveButton.setOnClickListener {
             if (isValidated()){
-                // add to DB
+                userViewModel.insertUser(
+                    User(
+                        name = binding.nameEditText.text.toString(),
+                        jobTitle = binding.jobTitleEditText.text.toString(),
+                        age = binding.ageEditText.text.toString().toInt(),
+                        gender = if (binding.rbMale.isChecked) "male" else "female"
+                    )
+                )
                 findNavController().navigate(R.id.action_homeFragment_to_usersFragment)
             }
 
