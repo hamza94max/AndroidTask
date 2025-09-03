@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.kotlin.android)
     id("kotlin-kapt")
     id("androidx.navigation.safeargs")
+    id("dagger.hilt.android.plugin")
 }
 
 android {
@@ -59,7 +60,14 @@ dependencies {
     implementation("com.intuit.sdp:sdp-android:1.1.1")
     implementation("com.intuit.ssp:ssp-android:1.1.1")
 
+    val room_version = "2.6.1"
+    implementation("androidx.room:room-runtime:$room_version")
+    implementation("androidx.room:room-ktx:$room_version")
+    kapt("androidx.room:room-compiler:$room_version")
 
+    //hilt
+    implementation ("com.google.dagger:hilt-android:2.48.1")
+    kapt ("com.google.dagger:hilt-android-compiler:2.48.1")
 
     // toasty
     implementation("com.github.GrenderG:Toasty:1.5.2")
