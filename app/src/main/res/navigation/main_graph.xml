@@ -9,5 +9,17 @@
         android:id="@+id/homeFragment"
         android:name="com.hamza.madar.ui.home.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_usersFragment"
+            app:destination="@id/usersFragment" />
+    </fragment>
+
+
+
+    <fragment
+        android:id="@+id/usersFragment"
+        android:name="com.hamza.madar.ui.users.UsersFragment"
+        android:label="fragment_users"
+        tools:layout="@layout/fragment_users" />
 </navigation>

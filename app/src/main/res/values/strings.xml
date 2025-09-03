@@ -11,4 +11,7 @@
     <string name="save">Save</string>
     <string name="add_user">Add User</string>
     <string name="please_enter_name">Please enter name</string>
+    <string name="please_enter_valid_age_1_120">Please enter valid age (1-120)</string>
+    <string name="please_enter_job_title">Please enter job title</string>
+    <string name="please_select_gender">Please select gender</string>
 </resources>
